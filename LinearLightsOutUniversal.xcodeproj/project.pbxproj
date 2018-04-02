@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BB5F6AD207277C500AEDB62 /* LinearLightsOutGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5F6AC207277C500AEDB62 /* LinearLightsOutGame.m */; };
 		1BE293B920601B18007F659E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE293B820601B18007F659E /* AppDelegate.swift */; };
 		1BE293BB20601B18007F659E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE293BA20601B18007F659E /* ViewController.swift */; };
 		1BE293BE20601B18007F659E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BE293BC20601B18007F659E /* Main.storyboard */; };
@@ -20,10 +21,12 @@
 		1BE293D720601BAE007F659E /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE293CF20601BAE007F659E /* Icon-Small-50.png */; };
 		1BE293D820601BAE007F659E /* iconBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE293D020601BAE007F659E /* iconBig.png */; };
 		1BE293D920601BAE007F659E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE293D120601BAE007F659E /* Icon-72.png */; };
-		1BE293DC20609141007F659E /* LinearLightsOutGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE293DB20609141007F659E /* LinearLightsOutGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BB5F6AA207277C500AEDB62 /* LinearLightsOutUniversal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LinearLightsOutUniversal-Bridging-Header.h"; sourceTree = "<group>"; };
+		1BB5F6AB207277C500AEDB62 /* LinearLightsOutGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinearLightsOutGame.h; sourceTree = "<group>"; };
+		1BB5F6AC207277C500AEDB62 /* LinearLightsOutGame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinearLightsOutGame.m; sourceTree = "<group>"; };
 		1BE293B520601B18007F659E /* LinearLightsOutUniversal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinearLightsOutUniversal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE293B820601B18007F659E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BE293BA20601B18007F659E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +42,6 @@
 		1BE293CF20601BAE007F659E /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		1BE293D020601BAE007F659E /* iconBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBig.png; sourceTree = "<group>"; };
 		1BE293D120601BAE007F659E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		1BE293DB20609141007F659E /* LinearLightsOutGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearLightsOutGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +88,9 @@
 				1BE293BF20601B18007F659E /* Assets.xcassets */,
 				1BE293C120601B18007F659E /* LaunchScreen.storyboard */,
 				1BE293C420601B19007F659E /* Info.plist */,
-				1BE293DB20609141007F659E /* LinearLightsOutGame.swift */,
+				1BB5F6AB207277C500AEDB62 /* LinearLightsOutGame.h */,
+				1BB5F6AC207277C500AEDB62 /* LinearLightsOutGame.m */,
+				1BB5F6AA207277C500AEDB62 /* LinearLightsOutUniversal-Bridging-Header.h */,
 			);
 			path = LinearLightsOutUniversal;
 			sourceTree = "<group>";
@@ -123,6 +127,7 @@
 				TargetAttributes = {
 					1BE293B420601B18007F659E = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -171,7 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BE293DC20609141007F659E /* LinearLightsOutGame.swift in Sources */,
+				1BB5F6AD207277C500AEDB62 /* LinearLightsOutGame.m in Sources */,
 				1BE293BB20601B18007F659E /* ViewController.swift in Sources */,
 				1BE293B920601B18007F659E /* AppDelegate.swift in Sources */,
 			);
@@ -310,12 +315,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 784G6DP2V5;
 				INFOPLIST_FILE = LinearLightsOutUniversal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.rosehulman.fengy2.LinearLightsOutUniversal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LinearLightsOutUniversal/LinearLightsOutUniversal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -325,12 +333,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 784G6DP2V5;
 				INFOPLIST_FILE = LinearLightsOutUniversal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.rosehulman.fengy2.LinearLightsOutUniversal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LinearLightsOutUniversal/LinearLightsOutUniversal-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

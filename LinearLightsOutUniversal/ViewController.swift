@@ -32,20 +32,20 @@ class ViewController: UIViewController {
     @IBAction func pressedGameBoardBtns(_ sender: Any) {
         let gameBoardBtn = sender as! UIButton
         print(gameBoardBtn.tag)
-        hasWon = game.pressedLightAtIndex(gameBoardBtn.tag)
+        hasWon = game!.pressedLight(at: gameBoardBtn.tag)
         updateView()
     }
     
     func updateView() {
         if traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
-            gameStateLabel.text = hasWon ? "Won in \(game.movesTaken) moves!!!" : "Moves Taken: \(game.movesTaken)"
+            gameStateLabel.text = hasWon ? "Won in \(game!.movesTaken) moves!!!" : "Moves Taken: \(game!.movesTaken)"
         } else {
-            gameStateNavBar.topItem?.title = hasWon ? "Won in \(game.movesTaken) moves!!!" : "Moves Taken: \(game.movesTaken)"
+            gameStateNavBar.topItem?.title = hasWon ? "Won in \(game!.movesTaken) moves!!!" : "Moves Taken: \(game!.movesTaken)"
         }
         
         for i in 0..<13 {
             let btn = gameBoardBtns[i]
-            if game.lightStates[i] {
+            if game!.isLightOn(at: i) {
                 if hasWon {
                     btn.setImage(#imageLiteral(resourceName: "light_on"), for: UIControlState.disabled)
                 } else {
