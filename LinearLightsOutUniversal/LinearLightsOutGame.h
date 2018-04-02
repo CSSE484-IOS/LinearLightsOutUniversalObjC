@@ -21,5 +21,6 @@
 - (BOOL) pressedLightAtIndex:(NSInteger) lightIndex;
 - (BOOL) isLightOnAtIndex:(NSInteger) lightIndex;
 - (BOOL) checkForWin;
+- (NSString*) description;
 
 @end

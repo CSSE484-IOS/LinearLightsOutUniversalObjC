@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         print(gameBoardBtn.tag)
         hasWon = game!.pressedLight(at: gameBoardBtn.tag)
         updateView()
+        print(game!.description());
     }
     
     func updateView() {

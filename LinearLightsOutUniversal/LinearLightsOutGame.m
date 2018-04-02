@@ -28,71 +28,41 @@
 }
 
 - (BOOL) pressedLightAtIndex:(NSInteger) lightIndex {
-    return NO;
+    if ([self checkForWin]) {
+        return YES;
+    }
+    lightStates[lightIndex] = !lightStates[lightIndex];
+    if (lightIndex > 0) {
+        lightStates[lightIndex - 1] = !lightStates[lightIndex - 1];
+    }
+    if (lightIndex < self.numLights - 1) {
+        lightStates[lightIndex + 1] = !lightStates[lightIndex + 1];
+    }
+    self.movesTaken++;
+    return [self checkForWin];
 }
+
 - (BOOL) isLightOnAtIndex:(NSInteger) lightIndex {
-    return NO;
+    return lightStates[lightIndex];
 }
+
 - (BOOL) checkForWin {
-    return NO;
+    for (int i = 0; i < self.numLights; i++) {
+        if (lightStates[i]) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+- (NSString*) description {
+    NSMutableString* gameStateString = [[NSMutableString alloc] init];
+    [gameStateString appendString:@"Lights: "];
+    for (int i = 0; i < self.numLights; i++) {
+        [gameStateString appendString:lightStates[i] ? @"1" : @"0"];
+    }
+    [gameStateString appendString:[NSString stringWithFormat:@" Moves: %d", (int)self.movesTaken]];
+    return gameStateString;
 }
 
 @end
-
-//import Foundation
-//
-//class LinearLightsOutGame: CustomStringConvertible {
-//    var movesTaken: Int
-//    var numLights: Int
-//    var lightStates: [Bool]
-//
-//    init(numLights: Int) {
-//        movesTaken = 0
-//        self.numLights = numLights
-//        lightStates = [Bool](repeating: true, count: numLights)
-//        initLightStates(numLights)
-//    }
-//
-//    func initLightStates(_ numLights: Int) {
-//        for index in 0..<numLights {
-//            let randomNumber : Int = Int(arc4random_uniform(UInt32(2)))
-//            lightStates[index] = randomNumber == 1
-//        }
-//    }
-//
-//    func pressedLightAtIndex(_ index: Int) -> Bool {
-//        if checkForWin() {
-//            return true
-//        }
-//        lightStates[index] = !lightStates[index]
-//        if index > 0 {
-//            lightStates[index - 1] = !lightStates[index - 1]
-//        }
-//        if index < numLights - 1 {
-//            lightStates[index + 1] = !lightStates[index + 1]
-//        }
-//        movesTaken += 1
-//        return checkForWin()
-//    }
-//
-//    func checkForWin() -> Bool {
-//        for isOn in lightStates {
-//            if isOn {
-//                return false
-//            }
-//        }
-//        return true
-//    }
-//
-//    func getLightsString() -> String {
-//        var lightsString = ""
-//        for state in lightStates {
-//            lightsString += state ? "1" : "0"
-//        }
-//        return lightsString
-//    }
-//
-//    var description: String {
-//        return "Lights: \(getLightsString()) Moves: \(movesTaken)"
-//    }
-//}
